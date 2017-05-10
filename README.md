@@ -1,2 +1,7 @@
 # progetto1-asw
-Primo progetto per il corso di Architettura dei Sistemi Software
+L'applicazione è stata sviluppata da:
+
+* Stefano Baruffa
+* Marco Pavia
+
+Questo repository contiene il codice dei servizi e gli script per la pulizia e l'avvio di questi ultimi.
