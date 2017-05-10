@@ -1,0 +1,29 @@
+# application.yml
+--- 
+spring: 
+  application: 
+    name: test
+server: 
+  port: ${PORT:${SERVER_PORT:0}}
+words: to,pass,the,test
+
+--- 
+spring: 
+  profiles: anno
+  application: 
+    name: anno
+years: 3 Novembre 1911,7 marzo 1916,16 Luglio 1909,6 Luglio 1926,11 Luglio 1899,26 Dicembre 1933,4 Aprile 1857,1 Ottobre 1898,9 Giugno 1944
+server: 
+  port: 8081
+
+--- 
+spring: 
+  profiles: luogo
+  application: 
+    name: luogo
+places: Stoccarda - Germania,Torino - Italia,Monaco - Germania,Detroit - Michigan,Parigi - Francia,Kyoto - Giappone,Londra - Inghilterra,Berlino - Germania,Los Angeles - California
+server: 
+  port: 8081
+  
+
+

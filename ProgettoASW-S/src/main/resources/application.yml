@@ -1,0 +1,11 @@
+# application.yml 
+--- 
+spring: 
+  application: 
+    name: machine
+machine:
+  informazioni.uri: http://localhost:8081/{casa_automobilistica}
+  venditeTotali.uri: http://localhost:8082/{casa_automobilistica}
+  venditePaese.uri: http://localhost:8082/{casa_automobilistica}/{paese}
+server:
+  port: 8080
