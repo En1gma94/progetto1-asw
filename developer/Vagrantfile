@@ -1,0 +1,49 @@
+# 
+# Vagrantfile per un singolo nodo (project, developer) 
+# per la compilazione dei progetti, 
+# con Oracle Java, Gradle e Maven. 
+# 
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+    # Ubuntu Trusty (14.04 LTS) 64 bit VirtualBox.
+    config.vm.box = "ubuntu/trusty64"
+    # config.vm.box_url = "http://files.vagrantup.com/ubuntu/trusty64.box"
+
+    # folder per il progetto di Asw (/home/vagrant/workspace)
+    config.vm.synced_folder "../../workspace", "/home/vagrant/workspace", :mount_options => ["dmode=777", "fmode=777"]
+
+    config.vm.synced_folder "../shared/", "/home/vagrant/shared", :mount_options => ["dmode=777", "fmode=777"]
+
+    # Configurazione del nodo "dev", che prevede:
+
+    config.vm.define "project" do |node|
+        node.vm.hostname = "project"    
+        node.vm.network "private_network", ip: "10.11.1.52", virtualbox__intnet: true
+
+        node.vm.provider "virtualbox" do |v| 
+            
+	# si vogliono lanciare piu' applicazioni Spring 
+             v.memory = 4096 
+             v.cpus = 2
+        end 
+
+        node.vm.network "forwarded_port", guest: 22, host: 2222, id: 'ssh', auto_correct: true 
+        node.ssh.forward_agent = true
+ 
+        node.vm.network "forwarded_port", guest: 8080, host: 8088, id: 'http', auto_correct: true
+
+        # provisioning con bash 
+        node.vm.provision :shell, :inline => 'apt-get update'
+        node.vm.provision :shell, path: "../shared/scripts/setup-java.sh"
+        node.vm.provision :shell, path: "../shared/scripts/setup-gradle.sh"
+        node.vm.provision :shell, path: "../shared/scripts/setup-maven.sh"
+  
+        node.vm.provision :shell, 
+            inline: "echo  'configurazione nodo developer completata'"
+
+    end
+
+end
