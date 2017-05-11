@@ -29,7 +29,7 @@ public class ControllerS {
 
 	/*servizio fornito da S nel caso in cui venga specificata solo la 
 	casa automobilistica*/
-	@RequestMapping("/{casa_automobilistica}")
+	@RequestMapping("/S/{casa_automobilistica}")
 	public String getMachineTotalSold(@PathVariable String casa_automobilistica) {
 		// richiesta del servizio S1
 		String fond = getInfo(casa_automobilistica);
@@ -42,7 +42,7 @@ public class ControllerS {
 
 	/*servizio fornito da S nel caso in cui vengano specificati casa 
 	automobilistica e paese di interesse */
-	@RequestMapping("/{casa_automobilistica}/{paese}")
+	@RequestMapping("/S/{casa_automobilistica}/{paese}")
 	public String getMachineCountrySold(@PathVariable String casa_automobilistica,@PathVariable String paese) {
 		// richiesta del servizio S1
 		String fond = getInfo(casa_automobilistica);
