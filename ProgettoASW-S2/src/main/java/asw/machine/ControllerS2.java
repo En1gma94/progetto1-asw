@@ -24,7 +24,7 @@ public class ControllerS2 {
 	automobilistica nel paese specificato, nel caso in cui l'input sia 
 	"Fiat" e "Italia" o "Chevrolet" e "USA" l'output generato 
 	non è casuale */
-	@RequestMapping("/{casa_automobilistica}/{paese}")
+	@RequestMapping("/S2/{casa_automobilistica}/{paese}")
 	public String getVendite(@PathVariable String casa_automobilistica, @PathVariable String paese) {
 		String[] venditeArray = vendite.split(",");
 		String vendita;
@@ -59,7 +59,7 @@ public class ControllerS2 {
 	/* restituisce il numero dei modelli totali venduti dalla casa
 	automobilistica specificata, nel caso in cui l'input sia "Fiat" 
 	o "Chevrolet" l'output generato non è casuale */
-	@RequestMapping("/{casa_automobilistica}")
+	@RequestMapping("/S2/{casa_automobilistica}")
 	public String getTotalSales(@PathVariable String casa_automobilistica) {
 		String[] venditeArray = vendite.split(",");
 		String vendita;
@@ -74,7 +74,7 @@ public class ControllerS2 {
 		break;
 		}
 
-		logger.info("getVenditeTot(casa_automobilistica): " + vendita); 
+		logger.info("getTotalSales(casa_automobilistica): " + vendita); 
 		return vendita; 
 	}
 
