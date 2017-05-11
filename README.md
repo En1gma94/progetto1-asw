@@ -5,13 +5,11 @@ L'applicazione è stata sviluppata da:
 * Stefano Baruffa
 * Marco Pavia
 
-Questo repository contiene il codice dei servizi e gli script per la pulizia e l'avvio di questi ultimi.
+Questo repository contiene il codice dei servizi, gli script per la pulizia e l'avvio di questi ultimi.
 
 ## Dominio Applicativo
 
-Il servizio principale S fornisce informazioni (casuali) sulle case automobilistiche.
-
-Il servizio S fornisce due operazioni:
+Il servizio principale S fornisce informazioni (casuali) sulle case automobilistiche e si avvale di due operazioni:
 
 * `/S/<casa-automobilistica>/<paese>` restituisce informazioni (casuali) sulla `<casa-automobilistica>` (anno e luogo di fondazione) e sul numero (casuale) delle vendite nel `<paese>` indicato. 
 * `/S/<casa-automobilistica>` restituisce invece informazioni (sempre casuali) sulla `<casa-automobilistica>` (anno e luogo di fondazione) e sul numero (sempre casuale) di modelli venduti nel totale.
@@ -31,7 +29,7 @@ Il servizio S1 fornisce un’operazione:
 
 Ad esempio,
 
-*  la richiesta `/S1/Chevrolet` potrebbe restituire _3 Novembre 1911 a Detroit, Michigan_.
+*  la richiesta `/S1/Chevrolet` potrebbe restituire _3 Novembre 1911 a Detroit - Michigan_.
 
 ### Servizio S2
 
