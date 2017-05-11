@@ -27,7 +27,7 @@ public class ControllerS1 {
 	automobilistica, quali data e luogo di fondazione,
 	nel caso in cui l'input sia "Fiat" o "Chevrolet" l'output generato 
 	non è casuale */
-	@RequestMapping("/{casa_automobilistica}")
+	@RequestMapping("/S1/{casa_automobilistica}")
 	public String getInfo(@PathVariable String casa_automobilistica) {
 		String[] anniArray = anni.split(",");
 		String[] luoghiArray = luoghi.split(",");
